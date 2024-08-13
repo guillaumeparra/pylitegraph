@@ -1,5 +1,10 @@
 # pylitegraph
 
+## What is pylitegraph ?
+
+pylitegraph is a reduced version of comfyui. It's been created to keep only the UI and the python node system
+
+
 ## Installation
 
 Download miniconda then create a python 3.10 env :
