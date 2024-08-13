@@ -1,10 +1,17 @@
 # pylitegraph
 
-Installation
+## Installation
 
-conda create -n "pylite" python=3.10
-conda activate pylite
+Download miniconda then create a python 3.10 env :
 
-download the package and cd to /pylitegraph/
+```conda create -n "pylite" python=3.10```
 
-python main.py
+```conda activate pylite``` 
+
+then download the package and cd to /pylitegraph/ and run :
+
+```pip install -r requirements.txt```
+
+Now you can start it this way :
+
+```python main.py``` 
