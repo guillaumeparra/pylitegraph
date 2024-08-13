@@ -1,0 +1,6 @@
+aiohttp
+pyyaml
+Pillow
+scipy
+tqdm
+psutil
