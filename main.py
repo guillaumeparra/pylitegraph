@@ -1,5 +1,5 @@
-import sys
-sys.path.append('/s/prods/vfxbox/sequence/pgu/common/github/pylitegraph/envs/')
+# import sys
+# sys.path.append('/s/prods/vfxbox/sequence/pgu/common/github/pylitegraph/envs/')
 
 import options
 options.enable_args_parsing()
