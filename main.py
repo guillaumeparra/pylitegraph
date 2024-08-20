@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/s/prods/vfxbox/sequence/pgu/common/github/pylitegraph/envs/')
+
 import options
 options.enable_args_parsing()
 
@@ -74,7 +77,7 @@ import nodes
 
 
 def prompt_worker(q, server):
-    e = execution.PromptExecutor(server)
+    e = execution.PromptExecutor(server, lru_size=None)
     last_gc_collect = 0
     need_gc = False
     gc_collect_interval = 10.0
@@ -94,7 +97,7 @@ def prompt_worker(q, server):
             e.execute(item[2], prompt_id, item[3], item[4])
             need_gc = True
             q.task_done(item_id,
-                        e.outputs_ui,
+                        e.history_result,
                         status=execution.PromptQueue.ExecutionStatus(
                             status_str='success' if e.success else 'error',
                             completed=e.success,
@@ -110,6 +113,7 @@ def prompt_worker(q, server):
         free_memory = flags.get("free_memory", False)
 
         if flags.get("unload_models", free_memory):
+            comfy.model_management.unload_all_models()
             need_gc = True
             last_gc_collect = 0
 

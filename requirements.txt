@@ -4,3 +4,6 @@ Pillow
 scipy
 tqdm
 psutil
+yaml
+requests
+typing_extensions

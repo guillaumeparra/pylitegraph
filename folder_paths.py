@@ -6,10 +6,14 @@ import logging
 from collections.abc import Collection
 
 folder_names_and_paths: dict[str, tuple[list[str], set[str]]] = {}
+supported_pt_extensions: set[str] = {'.ckpt', '.pt', '.bin', '.pth', '.safetensors', '.pkl', '.sft'}
 
 base_path = os.path.dirname(os.path.realpath(__file__))
 
+models_dir = os.path.join(base_path, "models")
+
 folder_names_and_paths["custom_nodes"] = ([os.path.join(base_path, "custom_nodes")], set())
+folder_names_and_paths["embeddings"] = ([os.path.join(models_dir, "embeddings")], supported_pt_extensions)
 
 output_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)), "output")
 temp_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)), "temp")
